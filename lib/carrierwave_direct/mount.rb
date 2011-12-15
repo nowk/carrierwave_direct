@@ -6,9 +6,9 @@ module CarrierWaveDirect
     def mount_uploader(column, uploader=nil, options={}, &block)
       super
 
-      uploader.class_eval <<-RUBY, __FILE__, __LINE__+1
-        def #{column}; self; end
-      RUBY
+      # uploader.class_eval <<-RUBY, __FILE__, __LINE__+1
+      #   def #{column}; self; end
+      # RUBY
 
       self.instance_eval <<-RUBY, __FILE__, __LINE__+1
         attr_accessor :remote_#{column}_net_url
